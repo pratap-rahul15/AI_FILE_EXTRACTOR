@@ -1,0 +1,4 @@
+/po-extractor-backend/node_modules
+/po-extractor-frontend/node_modules
+.env
+/po-extractor-backend/uploads
