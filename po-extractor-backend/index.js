@@ -7,7 +7,7 @@ const mammoth = require("mammoth");
 const Tesseract = require("tesseract.js");
 const fs = require("fs");
 dotenv.config({ path: "../.env" });
-
+const path = require("path")
 // const { Configuration, OpenAIApi } = require("openai");
 
 const app = express();
@@ -23,6 +23,10 @@ const openai = new OpenAI({
   apiKey: process.env.API_KEY,
 });
 
+//merging react frontend to nodejs backedn
+app.get("*", (req,res) => {
+  res.sendFile(path.resolve(__dirname, "../po-extractor-frontend", public, 'index.htmlpo-extractor-frontendpo-extractor-frontend'))
+})
 // Routing to handle the file uploaded by the user & extract the info from it.
 app.post("/api/extract", upload.single("poFile"), async (req, res) => {
   // Check if the file was uploaded
